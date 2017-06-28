@@ -39,7 +39,7 @@ function calcular(){
 
 	var totalAgua = calcularAgua(consumo);
 
-	mostrar(totalAgua);
+	mostrar(totalAgua.toFixed(2));
 
 
 
