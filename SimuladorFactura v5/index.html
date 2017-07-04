@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!--<script src="calculaConsumo.js"></script>-->
+  <script src="jquery-3.2.1.min.js"></script>
+	<script src="SimuladorFactura.js"></script>
+</head>
+<body>
+
+
+
+
+<style type="text/css">
+	
+#simulador{color:#358ECA;}
+
+
+#divSimulador{ width: 80%; margin-left: 3%;}
+
+
+
+
+
+
+#consumo{
+	height: 30px;
+	-moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        border: 1px solid #000000;
+        padding: 0 4px 0 4px;
+    }
+
+
+#simulacion{
+	display: none;
+}
+
+
+
+#divConsumo{
+	background-color: #D7D7D7;
+	width: 30%; height: auto;
+	margin: auto;
+}
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="simuladorFactura">
+  <div id="divSimulador">
+  	<h1><span id="simulador">Simulador</span> aproximat de consum </h1>
+  	<p>La factura en Emaya s'emet trimestralment i està composta per una quota fixa de servei i un import variable segons en consum. La factura es calcula segons el consum que es registri cada mes.</p>
+
+  </div>
+
+
+
+
+	<div id="divConsumo"> 
+		<form>
+  			Consumo:
+  			<input type="text" id="consumo" /> m<sup>3</sup>
+  			<br/><br/>
+  			<input type="button" id="botonCalcula" value="Calcular" onClick="calcularSimulacion();" />
+		</form> 
+	</div><br/>
+
+
+	<div id="simulacion">
+
+		<div id="resumen">
+			<h3>Resum del detall</h3>
+			<p>EMAYA Servei d'aigua: <span id="resumenAgua"></span></p>
+			<p>EMAYA Servei de clavegueram: <span id="resumenAlcantarillado"></span></p>
+			<p>EMAYA Servei R.S.U: <span id="resumenRSU"></span></p>
+			<p>EMAYA Subtotal: <span id="resumenSubtotal"></span></p>
+			<p>Govern Balear Subtotal: <span id="resumenCanon"></span></p>
+			<p>I.V.A: <span id="resumenIVA"></span></p>
+			<p>Total Factura: <span id="resumenTotal"></span></p>
+		</div>
+
+
+
+
+	 	<div id="agua">
+	 		<h3>Servei d'aigua</h3>
+
+	 		<p>Blocs  |<span>m3 </span> |<span> preu </span> |<span> import </span>|</p>
+	 		<p>Bloc 1 |<span id="bloqueAgua1"> </span> |<span id="precioBloqueAgua1"> </span> |<span id="importeBloqueAgua1"> </span>|</p>
+	 		<p>Bloc 2 |<span id="bloqueAgua2"> </span> |<span id="precioBloqueAgua2"> </span> |<span id="importeBloqueAgua2"> </span>|</p>
+	 		<p>Bloc 3 |<span id="bloqueAgua3"> </span> |<span id="precioBloqueAgua3"> </span> |<span id="importeBloqueAgua3"> </span>|</p>
+	 		<p>Bloc 4 |<span id="bloqueAgua4"> </span> |<span id="precioBloqueAgua4"> </span> |<span id="importeBloqueAgua4"> </span>|</p>
+	 		<p>Bloc 5 |<span id="bloqueAgua5"> </span> |<span id="precioBloqueAgua5"> </span> |<span id="importeBloqueAgua5"> </span>|</p>
+	 		<p>Quota fixa aigua:  <span id="cuotaFijaAgua"></span></p>
+	 		<p>Manteniment: <span id="mantenimiento"></span></p>
+	 		<p>Import d'aigua: <span id="importeAgua"></span></p>
+
+		 </div> 
+
+
+
+		<div id="alcantarillado">
+
+			<h3>Servei de clavegueram</h3>
+
+	 		<p>Blocs  |<span> m3 </span> |<span> preu </span>| <span> import </span>|</p>
+	 		<p>Bloc 1 | <span id="bloqueAlcantarillado1"> </span> |<span id="precioBloqueAlcantarillado1"> </span>| <span id="importeBloqueAlcantarillado1"> |</span></p>
+	 		<p>Bloc 2 |<span id="bloqueAlcantarillado2"> </span> |<span id="precioBloqueAlcantarillado2"> </span> |<span id="importeBloqueAlcantarillado2"> |</span></p>
+	 		<p>Bloc 3 |<span id="bloqueAlcantarillado3"> </span> |<span id="precioBloqueAlcantarillado3"> </span> |<span id="importeBloqueAlcantarillado3"> |</span></p>
+	 		<p>Bloc 4 |<span id="bloqueAlcantarillado4"> </span> |<span id="precioBloqueAlcantarillado4"> </span> |<span id="importeBloqueAlcantarillado4"> |</span></p>
+	 		<p>Bloc 5 |<span id="bloqueAlcantarillado5"> </span> |<span id="precioBloqueAlcantarillado5"> </span> |<span id="importeBloqueAlcantarillado5"> |</span></p>
+	 		<p>Bloc 6 |<span id="bloqueAlcantarillado6"> </span> |<span id="precioBloqueAlcantarillado6"> </span> |<span id="importeBloqueAlcantarillado6"> |</span></p>
+	 		<p>Quota fixa clavegueram:  <span id="cuotaFijaAlcantarillado"></span></p>
+	 		<p>Import de clavegueram: <span id="importeAlcantarillado"></span></p>
+
+   
+		</div>
+
+
+
+
+
+
+		<div id="rsu">
+		
+			<h3>Servei de R.S.U</h3>
+
+		 	<p>Quota fixa R.S.U:  <span id="cuotaFijaRSU"></span></p>
+		 	<p>Quota variable R.S.U:  <span id="cuotaVariableRSU"></span></p>
+		 	<p>Import de R.S.U: <span id="importeRSU"></span></p>
+
+
+		</div>
+
+
+
+
+
+
+
+
+		 <div id="canon">
+	 		<h3>Govern balear i cànon de sanejament</h3>
+
+	 		<p>Blocs  |<span>m3 </span> |<span> preu </span> |<span> import </span>|</p>
+	 		<p>Bloc 1 |<span id="bloqueCanon1"> </span> |<span id="precioBloqueCanon1"> </span> |<span id="importeBloqueCanon1"> </span>|</p>
+	 		<p>Bloc 2 |<span id="bloqueCanon2"> </span> |<span id="precioBloqueCanon2"> </span> |<span id="importeBloqueCanon2"> </span>|</p>
+	 		<p>Bloc 3 |<span id="bloqueCanon3"> </span> |<span id="precioBloqueCanon3"> </span> |<span id="importeBloqueCanon3"> </span>|</p>
+	 		<p>Bloc 4 |<span id="bloqueCanon4"> </span> |<span id="precioBloqueCanon4"> </span> |<span id="importeBloqueCanon4"> </span>|</p>
+	 		<p>Bloc 5 |<span id="bloqueCanon5"> </span> |<span id="precioBloqueCanon5"> </span> |<span id="importeBloqueCanon5"> </span>|</p>
+	 		<p>Quota fixa cànon sanejament:  <span id="cuotaFijaCanon"></span></p>
+	 		<p>Import cànon sanejament: <span id="importeCanon"></span></p>
+
+	 	</div> 
+
+
+
+	 	<div id="factura">
+	 		<p>EMAYA SUBTOTAL: <span id="subTotal"></span></p>
+	 		<p>GOVERN BALEAR SUBTOTAL: <span id="canonTotal"></span></p>
+	 		<p>BASE IMPOSABLE AL 10 %: <span id="base10"></span> IMPORT IVA AL 10 %: <span id="iva10"></span></p>
+	 		<p>BASE IMPOSABLE AL 21 %: <span id="base21"></span> IMPORT IVA AL 21 %: <span id="iva21"></span></p>
+	 		<p>Total IVA: <span id="ivaTotal"></span></p>
+	 		<p>TOTAL: <span id="total"></span></p>
+	 	</div>
+
+	 </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
