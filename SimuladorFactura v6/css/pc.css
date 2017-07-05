@@ -1,0 +1,165 @@
+
+#simuladorFactura #divSimulador{ width: 80%; margin-left: 3%;}
+
+
+#simuladorFactura #divSimulador #simulador{color:#358ECA;}
+
+
+
+#simuladorFactura #divConsumo{
+	width: 32%; height: 200px;
+	margin: auto;
+	
+}
+
+
+
+
+#simuladorFactura #divConsumo #divConsumoB{
+	min-width: 400px;
+	border-style: solid;
+	border-color: #D7D7D7;
+	border-width: 2px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo{
+	/*color de fondo es #D7D7D7 */
+
+	padding-top: 5%;
+	background-color: #F2F2F2;  
+	width: 100%; height: auto;
+	min-width: 400px;
+
+
+}
+
+
+
+
+
+
+
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo #divInput{
+	/*background-color: #D7D7D7;*/
+	margin-left: 15%;
+}
+
+
+
+
+
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo #divInput #consumo{
+	/*Esto es el input text*/
+
+		height: 30px;
+	-moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        border: 1px solid #000000;
+        padding: 0 4px 0 4px;
+    }
+
+
+
+
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo #divButton{
+	/* esot pone blanco encima #D7D7D7*/
+	padding-top: 5%;
+	background-color: #FFFFFF;
+	
+}
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo #divButton p{
+	margin-left: 3%;
+}
+
+
+
+
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo #divButton #botonCalcula{
+
+	width:50%;
+	height: 50px;
+	margin-left: 25%;
+	text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #358ECA; 
+    border-radius: 10px;
+    
+
+}
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo #divButton #botonCalcula:hover{
+	background-color: #5ea5d4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#simuladorFactura #simulacion{
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
