@@ -1,0 +1,283 @@
+
+
+
+#simuladorFactura{ background-color: #FBFBFB; }
+
+
+
+
+#simuladorFactura #texto2{display: none;}
+
+
+
+
+
+#simuladorFactura #divSimulador{ width: 80%; height: 120px; margin-left: 3%;}
+
+
+#simuladorFactura #divSimulador #simulador{color:#358ECA;}
+
+
+
+
+
+
+
+#simuladorFactura #divValor{ background-color: #F2F2F2;  
+
+	border-style: solid;
+	border-color: #DBDBDB;
+	border-width: 2px;
+	display: none;}
+
+
+/*#simuladorFactura #divValor p{ float: left;}*/
+
+
+
+#simuladorFactura #nuevoValor{ float: right;
+
+
+	width:50%;
+	height: 50px;
+	margin-left: 25%;
+	text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #358ECA; 
+    background-color: #ffffff;
+    border-radius: 10px;
+
+
+
+}
+
+
+#simuladorFactura #nuevoValor:hover{
+    color: #ffffff;
+    background-color: #5ea5d4; 
+
+}
+
+/*
+#simuladorFactura #divConsumo{
+	 margin-top: 10%;
+	
+	
+}*/
+
+
+
+
+
+
+
+
+#simuladorFactura #divConsumo #divConsumoB{
+	min-width: 400px;
+	
+	border-style: solid;
+	border-color: #D7D7D7;
+	border-width: 2px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo{
+	/*color de fondo es #D7D7D7 */
+	padding-top: 5%;
+	background-color: #F2F2F2;  
+	width: 100%; height: auto;
+	/*min-width: 400px;*/
+
+
+}
+
+
+
+
+
+
+
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo #divInput{
+	/*background-color: #D7D7D7;*/
+	
+	margin-left: 15%;
+	height: 100px;
+}
+
+
+
+
+
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo #divInput #consumo{
+	/*Esto es el input text*/
+
+		height: 30px;
+	-moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        border: 1px solid #000000;
+        padding: 0 4px 0 4px;
+    }
+
+
+
+
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo #divButton{
+	/* esot pone blanco encima #D7D7D7*/
+	padding-top: 5%;
+	background-color: #FFFFFF;
+	
+}
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo #divButton p{
+	margin-left: 3%;
+}
+
+
+
+
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo #divButton #botonCalcula{
+
+	width:50%;
+	height: 50px;
+	margin-left: 25%;
+	text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #358ECA; 
+    border-radius: 10px;
+    
+
+}
+
+
+#simuladorFactura #divConsumo #divConsumoB #formConsumo #divButton #botonCalcula:hover{
+	background-color: #5ea5d4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#simuladorFactura #simulacion{
+	display: none;
+}
+
+
+
+
+
+/*Apartir de aqui vendran los bloques de las facturas*/
+
+
+
+
+
+
+
+#simuladorFactura #simulacion #resumen #resumenDiv{ background-color: #FFFFFF; 
+
+	border-style: solid;
+	border-color: #DBDBDB;
+	border-width: 2px;
+
+}
+
+
+
+
+
+#simuladorFactura #simulacion #resumen #resumenDiv p{ 
+	margin-left: 2%;
+
+}
+
+
+
+
+#simuladorFactura #simulacion #resumen #resumenDiv ul{ list-style-type: none;}
+
+
+/*
+
+#simuladorFactura #simulacion #resumen #resumenUl #resumenUlv1 {float: left;}
+
+
+
+#simuladorFactura #simulacion #resumen #resumenUl #resumenUlv2 {float: right;}
+
+
+
+*/
+
+
+
+#simuladorFactura #simulacion #resumen #resumenDiv #resumenUlv2 {text-align: right;}
+
+
+
+
+
+
+
+
+
+
+
+
+#simuladorFactura #simulacion #resumen #resumenDiv #resumenUlv2 #resumenTotal{ color: #FF4788; }
+
+
+
+
+
+#simuladorFactura  .negrita{ font-weight: bold; }
+
+#simuladorFactura  .importe{ font-size: 16px; }
+
+
+
+
+
+
+
+
+/*apratir de qui vienen los estilos del div agua*/
+
+
+#simuladorFactura #simulacion #agua ul{list-style-type: none;
+
+
+
+}
+
