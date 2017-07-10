@@ -1,3 +1,15 @@
+function volverAtras(){
+	window.history.back();
+}
+
+
+
+
+
+
+
+
+
 
 function nuevoValor(){
 
@@ -122,15 +134,15 @@ function pintarAgua(simulacion){
 
 	
 	for(i=0; i < bloque.length; i++){
-		$("#bloqueAgua"+parseInt(i+1)).text(bloque[i]);
+		$("#bloqueAgua"+parseInt(i+1)).text(bloque[i].toFixed(2));
 		$("#precioBloqueAgua"+parseInt(i+1)).text(precioAgua[i]);
-		$("#importeBloqueAgua"+parseInt(i+1)).text(cuotaVariableAgua[i]);
+		$("#importeBloqueAgua"+parseInt(i+1)).text(cuotaVariableAgua[i].toFixed(2));
 		
 	}
 
-	$("#cuotaFijaAgua").text(cuotaFijaAgua);
-	$("#mantenimiento").text(mantenimiento);
-	$("#importeAgua").text(importeAgua);
+	$("#cuotaFijaAgua").text(cuotaFijaAgua.toFixed(2));
+	$("#mantenimiento").text(mantenimiento.toFixed(2));
+	$("#importeAgua").text(importeAgua.toFixed(2));
 
 
 
@@ -154,17 +166,16 @@ function pintarAlcantarillado(simulacion){
 
 
 	for(i=0; i < bloque.length; i++){
-		$("#bloqueAlcantarillado"+parseInt(i+1)).text(bloque[i]);
+		$("#bloqueAlcantarillado"+parseInt(i+1)).text(bloque[i].toFixed(2));
 		$("#precioBloqueAlcantarillado"+parseInt(i+1)).text(precioAlcantarillado[i]);
-		$("#importeBloqueAlcantarillado"+parseInt(i+1)).text(cuotaVariableAlcantarillado[i]);
+		$("#importeBloqueAlcantarillado"+parseInt(i+1)).text(cuotaVariableAlcantarillado[i].toFixed(2));
 	}
 
 
 
 
-	$("#cuotaFijaAlcantarillado").text(cuotaFijaAlcantarillado);
-	$("#importeAlcantarillado").text(importeAlcantarillado);
-
+	$("#cuotaFijaAlcantarillado").text(cuotaFijaAlcantarillado.toFixed(2));
+	$("#importeAlcantarillado").text(importeAlcantarillado.toFixed(2));
 
 
 
@@ -186,9 +197,9 @@ function pintarRSU(simulacion){
 	var importeRSU = simulacion.calcular().rsu.total;
 
 
-	$("#cuotaFijaRSU").text(cuotaFijaRSU);
-	$("#cuotaVariableRSU").text(cuotaVariableRSU);
-	$("#importeRSU").text(importeRSU);
+	$("#cuotaFijaRSU").text(cuotaFijaRSU.toFixed(2));
+	$("#cuotaVariableRSU").text(cuotaVariableRSU.toFixed(2));
+	$("#importeRSU").text(importeRSU.toFixed(2));
 }
 
 
@@ -209,14 +220,14 @@ function pintarCanon(simulacion){
 
 
 	for(i=0; i < bloque.length; i++){
-		$("#bloqueCanon"+parseInt(i+1)).text(bloque[i]);
+		$("#bloqueCanon"+parseInt(i+1)).text(bloque[i].toFixed(2));
 		$("#precioBloqueCanon"+parseInt(i+1)).text(precioCanon[i]);
-		$("#importeBloqueCanon"+parseInt(i+1)).text(cuotaVariableCanon[i]);
+		$("#importeBloqueCanon"+parseInt(i+1)).text(cuotaVariableCanon[i].toFixed(2));
 		
 	}
 
-	$("#cuotaFijaCanon").text(cuotaFijaCanon);
-	$("#importeCanon").text(importeCanon);
+	$("#cuotaFijaCanon").text(cuotaFijaCanon.toFixed(2));
+	$("#importeCanon").text(importeCanon.toFixed(2));
 
 
 
@@ -245,14 +256,14 @@ function pintarFactura(simulacion){
 
 
 
-	$("#subTotal").text(subTotal-canonTotal);
-	$("#canonTotal").text(canonTotal);
-	$("#base10").text(base10);
-	$("#iva10").text(iva10);
-	$("#base21").text(mantenimiento);
-	$("#iva21").text(iva21);
-	$("#ivaTotal").text(parseFloat(iva10+iva21).toFixed(2));
-	$("#total").text(total);
+	$("#subTotal").text((subTotal-canonTotal).toFixed(2));
+	$("#canonTotal").text(canonTotal.toFixed(2));
+	$("#base10").text(base10.toFixed(2));
+	$("#iva10").text(iva10.toFixed(2));
+	$("#base21").text(mantenimiento.toFixed(2));
+	$("#iva21").text(iva21.toFixed(2));
+	$("#ivaTotal").text((parseFloat(iva10+iva21)).toFixed(2));
+	$("#total").text(total.toFixed(2));
 
 
 

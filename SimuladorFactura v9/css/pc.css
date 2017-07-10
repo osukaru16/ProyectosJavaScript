@@ -39,7 +39,7 @@
 
 
 
-#simuladorFactura #nuevoValor{ float: right;
+#simuladorFactura .botonNuevoValor{ float: right;
 
 
 	width:50%;
@@ -171,7 +171,7 @@
 }
 
 
-#simuladorFactura .divConsumoB .formConsumo .divButton #botonCalcula:hover{
+#simuladorFactura .divConsumoB .formConsumo .divButton .botonCalcula:hover{
 	background-color: #5ea5d4;
 }
 
@@ -202,8 +202,10 @@
 
 
 
-#simuladorFactura #simulacion #resumen #resumenDiv{ background-color: #FFFFFF; 
+#simuladorFactura #simulacion .resumenDiv{ 
 
+
+	background-color: #FFFFFF; 
 	border-style: solid;
 	border-color: #DBDBDB;
 	border-width: 2px;
@@ -214,7 +216,7 @@
 
 
 
-#simuladorFactura #simulacion #resumen #resumenDiv p{ 
+#simuladorFactura #simulacion  .resumenDiv p{ 
 	margin-left: 2%;
 
 }
@@ -222,7 +224,7 @@
 
 
 
-#simuladorFactura #simulacion #resumen #resumenDiv ul{ list-style-type: none;}
+#simuladorFactura #simulacion  .resumenDiv ul{ list-style-type: none;}
 
 
 /*
@@ -239,7 +241,6 @@
 
 
 
-#simuladorFactura #simulacion #resumen #resumenDiv #resumenUlv2 {text-align: right;}
 
 
 
@@ -252,7 +253,8 @@
 
 
 
-#simuladorFactura #simulacion #resumen #resumenDiv #resumenUlv2 #resumenTotal{ color: #FF4788; }
+
+#simuladorFactura #simulacion  .resumenDiv .importePosicion #resumenTotal{ color: #FF4788; }
 
 
 
@@ -264,7 +266,7 @@
 
 
 
-
+#simuladorFactura  .importePosicion {text-align: right;}
 
 
 
@@ -272,9 +274,58 @@
 /*apratir de qui vienen los estilos del div agua*/
 
 
-#simuladorFactura #simulacion #agua ul{list-style-type: none;
+#simuladorFactura #simulacion ul{list-style-type: none;
 
 
 
 }
+
+#simuladorFactura #simulacion .ookii{
+	font-size: 20px;
+}
+
+
+
+
+#simuladorFactura h3{
+	color: #676D72;
+	font-weight: bold;
+
+	border-bottom: 2px solid #676D72;
+
+}
+
+
+
+
+
+
+#simuladorFactura #simulacion .botonVolver{
+	margin-top: 10%; 
+	padding: 1%;
+	background-color: #FFFFFF;
+	font-size: 18px;
+	border-radius: 20px;
+	border-color: #A1A7A7;
+	color: #A1A7A7;
+
+}
+
+
+#simuladorFactura #simulacion .botonVolver:hover{
+
+
+	background-color: #A1A7A7;
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+
+}
+
+
+
+
+
+
+
+
 
