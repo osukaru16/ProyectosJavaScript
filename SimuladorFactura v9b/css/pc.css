@@ -1,0 +1,348 @@
+
+
+
+#simuladorFactura{ background-color: #FBFBFB; }
+
+
+
+#simuladorFactura .simulador{ color: #3A91CB;  }
+
+
+
+
+
+
+#simuladorFactura #formularioInicial #divSimulador{ width: 80%; height: 120px; margin-left: 3%;}
+
+
+#simuladorFactura #divSimulador .titulo{color:#358ECA;}
+
+
+
+
+
+
+
+#simuladorFactura #simulacion .divValor{ 
+
+
+
+	background-color: #F2F2F2;  
+	border-style: solid;
+	border-color: #DBDBDB;
+	border-width: 2px;
+
+	}
+
+
+/*#simuladorFactura #divValor p{ float: left;}*/
+
+
+
+#simuladorFactura .botonNuevoValor{ float: right;
+
+
+	width:50%;
+	height: 50px;
+	margin-left: 25%;
+	text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #358ECA; 
+    background-color: #ffffff;
+    border-radius: 10px;
+
+
+
+}
+
+
+#simuladorFactura #nuevoValor:hover{
+    color: #ffffff;
+    background-color: #5ea5d4; 
+
+}
+
+
+
+
+
+
+
+
+#simuladorFactura .divConsumoB{
+	min-width: 400px;
+	
+	border-style: solid;
+	border-color: #D7D7D7;
+	border-width: 2px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+#simuladorFactura .divConsumoB .formConsumo{
+	/*color de fondo es #D7D7D7 */
+	padding-top: 5%;
+	background-color: #F2F2F2;  
+	width: 100%; height: auto;
+	/*min-width: 400px;*/
+
+
+}
+
+
+
+
+
+
+
+
+
+#simuladorFactura .divConsumoB .formConsumo .divInput{
+	/*background-color: #D7D7D7;*/
+	
+	margin-left: 15%;
+	height: 100px;
+}
+
+
+
+
+
+
+
+#simuladorFactura .divConsumoB .formConsumo .divInput #consumo{
+	/*Esto es el input text*/
+
+		height: 30px;
+	-moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        border: 1px solid #000000;
+        padding: 0 4px 0 4px;
+    }
+
+
+
+
+
+
+#simuladorFactura .divConsumoB .formConsumo .divButton{
+	/* esot pone blanco encima #D7D7D7*/
+	padding-top: 5%;
+	background-color: #FFFFFF;
+	
+}
+
+
+#simuladorFactura .divConsumoB .formConsumo .divButton p{
+	margin-left: 3%;
+}
+
+
+
+
+
+
+#simuladorFactura .divConsumoB .formConsumo .divButton .botonCalcula{
+
+	width:50%;
+	height: 50px;
+	margin-left: 25%;
+	text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #358ECA; 
+    border-radius: 10px;
+    
+
+}
+
+
+#simuladorFactura .divConsumoB .formConsumo .divButton .botonCalcula:hover{
+	background-color: #5ea5d4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#simuladorFactura #simulacion{
+	display: none;
+}
+
+
+
+
+
+/*Apartir de aqui vendran los bloques de las facturas*/
+
+
+
+
+
+
+
+#simuladorFactura #simulacion .resumenDiv{ 
+
+
+	background-color: #FFFFFF; 
+	border-style: solid;
+	border-color: #DBDBDB;
+	border-width: 2px;
+	padding-top: 4%;
+	padding-bottom: 2%;
+
+
+
+}
+
+
+
+
+
+#simuladorFactura #simulacion  .resumenDiv p{ 
+	margin-left: 2%;
+
+}
+
+
+
+
+#simuladorFactura #simulacion  .resumenDiv ul{ list-style-type: none;}
+
+
+/*
+
+#simuladorFactura #simulacion #resumen #resumenUl #resumenUlv1 {float: left;}
+
+
+
+#simuladorFactura #simulacion #resumen #resumenUl #resumenUlv2 {float: right;}
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#simuladorFactura #simulacion  .resumenDiv .importePosicion #resumenTotal{ color: #FF4788; }
+
+
+
+
+
+#simuladorFactura  .negrita{ font-weight: bold; }
+
+#simuladorFactura  .importe{ font-size: 16px; margin-top: 35%;}
+
+
+
+#simuladorFactura  .importePosicion {text-align: right;}
+
+
+
+
+/*apratir de qui vienen los estilos del div agua*/
+
+
+#simuladorFactura #simulacion ul{list-style-type: none;
+
+
+
+}
+
+#simuladorFactura #simulacion .ookii{
+	font-size: 20px;
+}
+
+
+
+
+#simuladorFactura h3{
+	color: #676D72;
+	font-weight: bold;
+
+	border-bottom: 1px solid #676D72;
+
+	padding-bottom: 10px;
+
+}
+
+
+
+
+
+
+#simuladorFactura #simulacion .botonVolver{
+	margin-top: 10%; 
+	padding: 1%;
+	background-color: #FFFFFF;
+	font-size: 18px;
+	border-radius: 20px;
+	border-color: #A1A7A7;
+	color: #A1A7A7;
+	
+
+}
+
+
+#simuladorFactura #simulacion .botonVolver:hover{
+
+
+	background-color: #A1A7A7;
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+
+}
+
+
+
+#simuladorFactura .liliput{
+	font-size: 12px;
+}
+
+
+
+#simuladorFactura h4{
+	color: #676D72;
+	font-weight: bold;
+	
+}
+
+
+#simuladorFactura .negativa{
+	margin-left: -14px;
+}

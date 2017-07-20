@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!--<script src="calculaConsumo.js"></script>-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" media="screen and (min-width: 601px)" href="css/pc.css">
+	<link rel="stylesheet" media="screen and (max-width: 600px)" href="css/pc.css">
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/SimuladorFactura.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="simuladorFactura" >
+
+	
+	<div class="container">
+		<h1><span class="simulador">Simulador</span> aproximat del seu consum </h1>
+
+
+		<div id="formularioInicial" >
+		
+		
+  			<p class="tituloCabeza">
+  			La factura en Emaya s'emet trimestralment i està composta per una quota fixa de servei i un import variable segons en consum. 
+  			La factura es calcula segons el consum que es registri cada mes.</p>
+
+
+  
+
+
+	  		
+
+	  			
+
+
+
+					<div class="cajaForm"> 
+						<p>Introdueixi els <strong>metres cúbics consumits</strong> durant el trimestre:</p>
+							<div id="aviso" class="alert alert-warning">
+    							<strong>Error!</strong><br/>En el camp de text: <br/> No posar ni text ni espais en blanc. <br/> Només números
+  							</div>
+						<div class="pintaBorde"> 
+							<form id="formularioMetrosCubicos" class="formConsumo">
+				  				<div class="divInput"><span class="consumoText">consumo:</span> 
+				  					<input type="text" id="consumo" /> m<sup>3</sup>
+				  				</div>
+				  				<div class="divButton">
+				  					<input type="submit" class="botonCalcula" value="calcular" onClick="calcularSimulacion();" />
+				  					<p class="liliput">(*) L'import serà aproximat segons tarifa actual en vigor  </p>
+				  				</div>
+							</form> 
+						</div>
+					</div>
+
+
+				
+
+			
+
+		</div>
+	</div>
+
+
+
+
+	
+
+	<div id="simulacion">
+		<div class="container"> 
+			<p class="tituloCabeza">Resultats de simulador de consum: Aquestes dades es troben en qualsevol factura de la seva actual companyia. Si té algun dubte, o si prefereix ser atès per un dels nostres agents no dubti en contactar amb nosaltres.</p>
+		</div>
+
+
+
+<!--
+ 		<div class="divValor row"> 
+ 			<div class="container"> <p class="valorIntro col-sm-8">Metres cúbics consumits en el trimestre: <strong><span id="valor"></span>m<sup>3</sup></strong></p> 
+ 			<span class="col-sm-4"><button class="botonNuevoValor" type="button" onclick="nuevoValor();"> <span class="glyphicon glyphicon-repeat"></span> nova simulació</button> </span></div></div>
+-->
+
+
+
+		<div class="divValor">
+ 			<div class="posicionValor container"> <p class="valorIntro">Metres cúbics consumits en el trimestre: 
+ 			<strong class="daiookii"><span id="valor"></span>m<sup>3</sup></strong></p> 
+ 				<span><button class="botonNuevoValor" type="button" onclick="nuevoValor();"><span class="glyphicon glyphicon-repeat"></span> nova simulació</button> </span>
+ 			</div>
+ 		</div>
+
+
+
+
+
+
+
+
+ 		<div class="container"> 
+ 			
+
+
+
+			
+
+				
+
+					<div class="resumenFactura">
+						<h4>Resum del detall:</h4>
+						<div class="resumenDiv">
+
+							<table class="tablaResumenFactura">
+								<tr>
+    								<td>EMAYA Servei d'aigua:</td>
+   									<td><span id="resumenAgua" class="datos"></span></td> 
+  								</tr>
+								
+								<tr>
+    								<td>EMAYA Servei de clavegueram:</td>
+   									<td><span id="resumenAlcantarillado" class="datos"></span></td> 
+  								</tr>
+
+  								<tr>
+    								<td>EMAYA Servei R.S.U:</td>
+   									<td><span id="resumenRSU" class="datos"></span></td> 
+  								</tr>
+
+  								<tr>
+    								<td class="negrita">EMAYA Subtotal:</td>
+   									<td><span id="resumenSubtotal" class="datos negrita"></span></td> 
+  								</tr>
+
+  								<tr>
+    								<td class="negrita">Govern Balear Subtotal:</td>
+   									<td><span id="resumenCanon" class="datos negrita"></span></td> 
+  								</tr>
+
+  								<tr>
+    								<td class="negrita">I.V.A:</td>
+   									<td><span id="resumenIVA" class="datos negrita"></span></td> 
+  								</tr>
+
+  								<tr>
+    								<td class="negrita">Total Factura:</td>
+   									<td><span id="resumenTotal" class="datos negrita "></span></td> 
+  								</tr>
+
+
+
+
+
+							</table>
+
+
+
+
+
+
+
+
+
+
+<!--
+							<ul class="resumenUlv1">
+								<li class="informacion ">EMAYA Servei d'aigua:</li> 
+						
+								<li class="informacion">EMAYA Servei de clavegueram:</li>
+						
+								<li class="informacion">EMAYA Servei R.S.U:</li>
+						
+								<li class="negrita informacion">EMAYA Subtotal:</li>
+						
+								<li class="negrita informacion">Govern Balear Subtotal:</li> 
+						
+								<li class="negrita informacion">I.V.A:</li>
+						
+								<li class="negrita informacion">Total Factura:</li>
+						
+							</ul>
+
+							<ul class="importePosicion">
+								
+								<li> <span id="resumenAgua" class="datos"></span></li>
+								
+								<li> <span id="resumenAlcantarillado" class="datos"></span></li>
+								
+								<li> <span id="resumenRSU" class="datos"></span></li>
+								
+								<li> <span id="resumenSubtotal" class="datos negrita"></span></li>
+							
+								<li> <span id="resumenCanon" class="datos negrita"></span></li>
+							
+								<li> <span id="resumenIVA" class="datos negrita"></span></li>
+								
+								<li> <span id="resumenTotal" class="datos negrita importe"></span></li>
+							</ul>
+-->
+							<p class="liliput">(*) L'import serà aproximat segons la tarifa actual en vigor.</p>
+
+
+
+
+
+
+
+
+							</div>
+						</div>
+
+
+
+					<div class="row">
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+
+		 				<div class="agua col-sm-6">
+
+			 				<h4 class="tituloTipo">Servei d'aigua</h4>
+					 		
+
+			 				<div class="tablasTam">
+						 		<table class="tablasFacturas">
+						 			
+						 			<tr>
+						 			  	<th class="tipoLeft">&nbsp;</th>
+						 			  	<th class="tipoRight">m<sup>3</sup></th> 
+						 			  	<th class="tipoRight">preu</th>
+						 			  	<th class="tipoRight">imports</th>
+						 			</tr>
+
+
+						 			<tr>
+						 				<td class="tipoLeft">Bloc 001 Quota variable aigua</td>
+						 				<td class="tipoRight"><span id="bloqueAgua1"></span></td>
+						 				<td class="tipoRight"><span id="precioBloqueAgua1"></span></td>
+						 				<td class="tipoRight"><span id="importeBloqueAgua1"> </span></td>
+						 			</tr>
+
+
+						 			<tr>
+						 				<td class="tipoLeft">Bloc 002 Quota variable aigua</td>
+						 				<td class="tipoRight"><span id="bloqueAgua2"></span></td>
+						 				<td class="tipoRight"><span id="precioBloqueAgua2"></span></td>
+						 				<td class="tipoRight"><span id="importeBloqueAgua2"> </span></td>
+						 			</tr>
+
+
+						 			<tr>
+						 				<td class="tipoLeft">Bloc 003 Quota variable aigua</td>
+						 				<td class="tipoRight"><span id="bloqueAgua3"></span></td>
+						 				<td class="tipoRight"><span id="precioBloqueAgua3"></span></td>
+						 				<td class="tipoRight"><span id="importeBloqueAgua3"> </span></td>
+						 			</tr>
+
+
+
+						 			<tr>
+						 				<td class="tipoLeft">Bloc 004 Quota variable aigua</td>
+						 				<td class="tipoRight"><span id="bloqueAgua4"></span></td>
+						 				<td class="tipoRight"><span id="precioBloqueAgua4"></span></td>
+						 				<td class="tipoRight"><span id="importeBloqueAgua4"> </span></td>
+						 			</tr>
+
+
+						 			<tr>
+						 				<td class="tipoLeft">Bloc 005 Quota variable aigua</td>
+						 				<td class="tipoRight"><span id="bloqueAgua5"></span></td>
+						 				<td class="tipoRight"><span id="precioBloqueAgua5"></span></td>
+						 				<td class="tipoRight"><span id="importeBloqueAgua5"> </span></td>
+						 			</tr>
+
+
+						 			<tr>
+						 				<td class="tipoLeft">Quota fixa aigua:</td>
+						 				<td>&nbsp;</td>
+						 				<td>&nbsp;</span></td>
+						 				<td class="tipoRight"><span id="cuotaFijaAgua"></span></td>
+						 			</tr>
+
+
+						 			<tr>
+						 				<td class="tipoLeft">Manteniment:</td>
+						 				<td>&nbsp;</td>
+						 				<td>&nbsp;</span></td>
+						 				<td class="tipoRight"><span id="mantenimiento"></span></td>
+						 			</tr>
+
+						 			<tr>
+						 				<td>&nbsp;</td>
+						 				<td>&nbsp;</td>
+						 				<td>&nbsp;</span></td>
+						 				<td class="negrita tipoRight importePosicion ookii"><span id="importeAgua"></span></td>
+						 			</tr>
+
+
+
+
+						 		</table>
+						 	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+					 			<ul class="col-sm-6">
+						 			<li>&nbsp;  </li>
+							 		<li>Bloc 001 Quota variable aigua</li>
+							 		<li>Bloc 002 Quota variable aigua</li>
+							 		<li>Bloc 003 Quota variable aigua</li>
+							 		<li>Bloc 004 Quota variable aigua</li>
+							 		<li>Bloc 005 Quota variable aigua</li>
+							 		<li>Quota fixa aigua: </li>
+							 		<li>Manteniment: </li>
+							 		<li>&nbsp; </li>
+					 			</ul>
+
+
+
+					 			<ul class="col-sm-2">
+					 				<li class="negrita">m<sup>3</sup></li>
+					 				<li><span id="bloqueAgua1"> </span></li>
+					 				<li><span id="bloqueAgua2"> </span></li>
+					 				<li><span id="bloqueAgua3"> </span></li>
+					 				<li><span id="bloqueAgua4"> </span></li>
+					 				<li><span id="bloqueAgua5"> </span></li>
+					 				
+					 			</ul>
+
+					 			<ul class="col-sm-2">
+					 				<li class="negrita">preu</li>
+					 				<li><span id="precioBloqueAgua1"> </span></li>
+					 				<li><span id="precioBloqueAgua2"> </span></li>
+					 				<li><span id="precioBloqueAgua3"> </span></li>
+					 				<li><span id="precioBloqueAgua4"> </span></li>
+					 				<li><span id="precioBloqueAgua5"> </span></li>
+					 			</ul>
+
+					 			<ul class="importePosicion col-sm-2">
+					 				<li class="negrita">imports</li>
+
+					 				<li><span id="importeBloqueAgua1"> </span></li>
+					 				<li><span id="importeBloqueAgua2"> </span></li>
+					 				<li><span id="importeBloqueAgua3"> </span></li>
+					 				<li><span id="importeBloqueAgua4"> </span></li>
+					 				<li><span id="importeBloqueAgua5"> </span></li>
+
+
+
+					 				<li><span id="cuotaFijaAgua"></span></li>
+					 				<li><span id="mantenimiento"></span></li>
+					 				<li class="negrita importe"><span id="importeAgua"></span></li>
+					 			</ul>
+
+
+
+-->
+
+
+
+	<!--
+
+			 		<p>Blocs  |<span>m3 </span> |<span> preu </span> |<span> import </span>|</p>
+			 		<p>Bloc 1 |<span id="bloqueAgua1"> </span> |<span id="precioBloqueAgua1"> </span> |<span id="importeBloqueAgua1"> </span>|</p>
+			 		<p>Bloc 2 |<span id="bloqueAgua2"> </span> |<span id="precioBloqueAgua2"> </span> |<span id="importeBloqueAgua2"> </span>|</p>
+			 		<p>Bloc 3 |<span id="bloqueAgua3"> </span> |<span id="precioBloqueAgua3"> </span> |<span id="importeBloqueAgua3"> </span>|</p>
+			 		<p>Bloc 4 |<span id="bloqueAgua4"> </span> |<span id="precioBloqueAgua4"> </span> |<span id="importeBloqueAgua4"> </span>|</p>
+			 		<p>Bloc 5 |<span id="bloqueAgua5"> </span> |<span id="precioBloqueAgua5"> </span> |<span id="importeBloqueAgua5"> </span>|</p>
+			 		<p>Quota fixa aigua:  <span id="cuotaFijaAgua"></span></p>
+			 		<p>Manteniment: <span id="mantenimiento"></span></p>
+			 		<p>Import d'aigua: <span id="importeAgua"></span></p>
+	
+
+						 	-->
+
+
+
+							 </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="alcantarillado col-sm-6">
+
+			<h4 class="tituloTipo">Servei de clavegueram</h4>
+
+
+			<div class="tablasTam">
+
+				<table class="tablasFacturas">
+					
+
+						<tr>
+							<th>&nbsp;</th>
+						 	<th class="tipoRight">m<sup>3</sup></th> 
+						 	<th class="tipoRight">preu</th>
+						  	<th class="tipoRight">imports</th>
+			 			</tr>
+
+						<tr>
+			 				<td>Bloc 001 Quota variable clavegueram</td>
+							<td class="tipoRight"><span id="bloqueAlcantarillado1"></span></td>
+						 	<td class="tipoRight"><span id="precioBloqueAlcantarillado1"></span></td>
+						 	<td class="tipoRight"><span id="importeBloqueAlcantarillado1"> </span></td>
+						</tr>
+
+
+						<tr>
+							<td>Bloc 002 Quota variable clavegueram</td>
+						 	<td class="tipoRight"><span id="bloqueAlcantarillado2"></span></td>
+						 	<td class="tipoRight"><span id="precioBloqueAlcantarillado2"></span></td>
+						 	<td class="tipoRight"><span id="importeBloqueAlcantarillado2"> </span></td>
+						</tr>
+
+
+						<tr>
+						 	<td>Bloc 003 Quota variable clavegueram</td>
+						 	<td class="tipoRight"><span id="bloqueAlcantarillado3"></span></td>
+						 	<td class="tipoRight"><span id="precioBloqueAlcantarillado3"></span></td>
+						 	<td class="tipoRight"><span id="importeBloqueAlcantarillado3"> </span></td>
+						</tr>
+
+
+
+						<tr>
+						 	<td>Bloc 004 Quota variable clavegueram</td>
+						 	<td class="tipoRight"><span id="bloqueAlcantarillado4"></span></td>
+						 	<td class="tipoRight"><span id="precioBloqueAlcantarillado4"></span></td>
+						 	<td class="tipoRight"><span id="importeBloqueAlcantarillado4"> </span></td>
+						</tr>
+
+
+						<tr>
+						 	<td>Bloc 005 Quota variable clavegueram</td>
+						 	<td class="tipoRight"><span id="bloqueAlcantarillado5"></span></td>
+						 	<td class="tipoRight"><span id="precioBloqueAlcantarillado5"></span></td>
+						 	<td class="tipoRight"><span id="importeBloqueAlcantarillado5"> </span></td>
+						</tr>
+
+
+						<tr>
+						 	<td>Bloc 006 Quota variable clavegueram</td>
+						 	<td class="tipoRight"><span id="bloqueAlcantarillado6"></span></td>
+						 	<td class="tipoRight"><span id="precioBloqueAlcantarillado6"></span></td>
+						 	<td class="tipoRight"><span id="importeBloqueAlcantarillado6"> </span></td>
+						</tr>
+
+
+						<tr>
+						 	<td>Quota fixa clavegueram:</td>
+						 	<td>&nbsp;</td>
+						 	<td>&nbsp;</span></td>
+						 	<td class="tipoRight"><span id="cuotaFijaAlcantarillado"></span></td>
+						</tr>
+
+
+
+						<tr>
+						 	<td>&nbsp;</td>
+						 	<td>&nbsp;</td>
+						 	<td>&nbsp;</span></td>
+						 	<td class="negrita tipoRight importePosicion ookii"><span id="importeAlcantarillado"></span></td>
+						 </tr>
+
+
+
+
+
+
+
+
+
+				</table>
+			</div>
+
+
+
+
+
+
+
+<!--
+
+			<div class="row">
+				
+				<ul class="col-sm-6">
+					<li> &nbsp;  </li>
+					<li>Bloc 001 Quota variable clavegueram</li>
+					<li>Bloc 002 Quota variable clavegueram</li>
+			 		<li>Bloc 003 Quota variable clavegueram</li>
+			 		<li>Bloc 004 Quota variable clavegueram</li>
+			 		<li>Bloc 005 Quota variable clavegueram</li>
+			 		<li>Bloc 006 Quota variable clavegueram</li>
+			 		<li>Quota fixa clavegueram: </li>
+					<li> &nbsp; </li>
+				</ul>
+
+
+
+				 <ul class="col-sm-2">
+					<li class="negrita">m<sup>3</sup></li>
+	 				<li><span id="bloqueAlcantarillado1"> </span></li>
+	 				<li><span id="bloqueAlcantarillado2"> </span></li>
+	 				<li><span id="bloqueAlcantarillado3"> </span></li>
+	 				<li><span id="bloqueAlcantarillado4"> </span></li>
+	 				<li><span id="bloqueAlcantarillado5"> </span></li>		 
+	 				<li><span id="bloqueAlcantarillado6"> </span></li>		 
+	 			</ul>
+
+
+
+				<ul class="col-sm-2">
+					<li class="negrita">preu</li>
+				 	<li><span id="precioBloqueAlcantarillado1"> </span></li>
+				 	<li><span id="precioBloqueAlcantarillado2"> </span></li>
+				 	<li><span id="precioBloqueAlcantarillado3"> </span></li>
+				 	<li><span id="precioBloqueAlcantarillado4"> </span></li>
+				 	<li><span id="precioBloqueAlcantarillado5"> </span></li>
+				 	<li><span id="precioBloqueAlcantarillado6"> </span></li>
+				</ul>
+
+
+
+
+				 <ul class="importePosicion col-sm-2">
+				 	<li class="negrita">imports</li>
+				 	<li><span id="importeBloqueAlcantarillado1"> </span></li>
+				 	<li><span id="importeBloqueAlcantarillado2"> </span></li>
+				 	<li><span id="importeBloqueAlcantarillado3"> </span></li>
+				 	<li><span id="importeBloqueAlcantarillado4"> </span></li>
+				 	<li><span id="importeBloqueAlcantarillado5"> </span></li>
+				 	<li><span id="importeBloqueAlcantarillado6"> </span></li>
+
+				 	<li><span id="cuotaFijaAlcantarillado"></span></li>
+				 	<li class="negrita importe"><span id="importeAlcantarillado"></span></li>
+				 </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+<!--
+	 		<p>Blocs  |<span> m3 </span> |<span> preu </span>| <span> import </span>|</p>
+	 		<p>Bloc 1 | <span id="bloqueAlcantarillado1"> </span> |<span id="precioBloqueAlcantarillado1"> </span>| <span id="importeBloqueAlcantarillado1"> |</span></p>
+	 		<p>Bloc 2 |<span id="bloqueAlcantarillado2"> </span> |<span id="precioBloqueAlcantarillado2"> </span> |<span id="importeBloqueAlcantarillado2"> |</span></p>
+	 		<p>Bloc 3 |<span id="bloqueAlcantarillado3"> </span> |<span id="precioBloqueAlcantarillado3"> </span> |<span id="importeBloqueAlcantarillado3"> |</span></p>
+	 		<p>Bloc 4 |<span id="bloqueAlcantarillado4"> </span> |<span id="precioBloqueAlcantarillado4"> </span> |<span id="importeBloqueAlcantarillado4"> |</span></p>
+	 		<p>Bloc 5 |<span id="bloqueAlcantarillado5"> </span> |<span id="precioBloqueAlcantarillado5"> </span> |<span id="importeBloqueAlcantarillado5"> |</span></p>
+	 		<p>Bloc 6 |<span id="bloqueAlcantarillado6"> </span> |<span id="precioBloqueAlcantarillado6"> </span> |<span id="importeBloqueAlcantarillado6"> |</span></p>
+	 		<p>Quota fixa clavegueram:  <span id="cuotaFijaAlcantarillado"></span></p>
+	 		<p>Import de clavegueram: <span id="importeAlcantarillado"></span></p>
+-->
+   
+		</div>
+
+
+
+
+
+
+		<div class="rsu col-sm-6">
+			<h4 class="tituloTipo">Servei de R.S.U</h4>
+
+			<div class="tablasTam">
+				<table class="tablasFacturas">
+					
+
+						<tr>
+							<th>&nbsp;</th>
+						  	<th class="tipoRight">imports</th>
+			 			</tr>
+
+						<tr>
+			 				<td>Quota fixa R.S.U: </td>
+						 	<td class="tipoRight"><span id="cuotaFijaRSU"> </span></td>
+						</tr>
+
+
+						<tr>
+							<td>Quota variable R.S.U:</td>
+						 	<td class="tipoRight"><span id="cuotaVariableRSU"> </span></td>
+						</tr>
+
+
+						<tr>
+							<td>&nbsp;</td>
+						 	<td class="tipoRight negrita importePosicionEspecial ookii"><span id="importeRSU"> </span></td>
+						</tr>
+
+
+
+				</table>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+			<div class="row">
+				
+			<ul class="col-sm-6">
+					<li> Quota fixa R.S.U: </li>
+					<li> Quota variable R.S.U:</li>
+					<li> &nbsp; </li>
+			</ul>
+
+
+
+			<ul class="importePosicion col-sm-6">
+					<li class="negrita">imports</li>
+				 	<li><span id="cuotaFijaRSU"> </span></li>
+				 	<li><span id="cuotaVariableRSU"> </span></li>
+				 	<li class="negrita importe"><span id="importeRSU"> </span></li>
+				 	
+			</ul>
+
+
+
+
+
+
+
+		</div>
+
+
+-->
+
+
+
+		<!--
+			<h3>Servei de R.S.U</h3>
+
+		 	<p>Quota fixa R.S.U:  <span id="cuotaFijaRSU"></span></p>
+		 	<p>Quota variable R.S.U:  <span id="cuotaVariableRSU"></span></p>
+		 	<p>Import de R.S.U: <span id="importeRSU"></span></p>
+
+		-->
+
+
+
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+			 <div class="canon col-sm-6">
+		 		<h4 class="tituloTipo">Govern balear i cànon de sanejament</h4>
+
+
+
+				<div class="tablasTam">	 		
+					<table class="tablasFacturas">
+						
+
+							<tr>
+								<th>&nbsp;</th>
+							 	<th class="tipoRight">m<sup>3</sup></th> 
+							 	<th class="tipoRight">preu</th>
+							  	<th class="tipoRight">imports</th>
+				 			</tr>
+
+							<tr>
+				 				<td>Bloc 001 Quota var. cànon de sanejament</td>
+								<td class="tipoRight"><span id="bloqueCanon1"></span></td>
+							 	<td class="tipoRight"><span id="precioBloqueCanon1"></span></td>
+							 	<td class="tipoRight"><span id="importeBloqueCanon1"> </span></td>
+							</tr>
+
+
+							<tr>
+								<td>Bloc 002 Quota var. cànon de sanejament</td>
+							 	<td class="tipoRight"><span id="bloqueCanon2"></span></td>
+							 	<td class="tipoRight"><span id="precioBloqueCanon2"></span></td>
+							 	<td class="tipoRight"><span id="importeBloqueCanon2"> </span></td>
+							</tr>
+
+
+							<tr>
+							 	<td>Bloc 003 Quota var. cànon de sanejament</td>
+							 	<td class="tipoRight"><span id="bloqueCanon3"></span></td>
+							 	<td class="tipoRight"><span id="precioBloqueCanon3"></span></td>
+							 	<td class="tipoRight"><span id="importeBloqueCanon3"> </span></td>
+							</tr>
+
+
+
+							<tr>
+							 	<td>Bloc 004 Quota var. cànon de sanejament</td>
+							 	<td class="tipoRight"><span id="bloqueCanon4"></span></td>
+							 	<td class="tipoRight"><span id="precioBloqueCanon4"></span></td>
+							 	<td class="tipoRight"><span id="importeBloqueCanon4"> </span></td>
+							</tr>
+
+
+							<tr>
+							 	<td>Bloc 005 Quota var. cànon de sanejament</td>
+							 	<td class="tipoRight"><span id="bloqueCanon5"></span></td>
+							 	<td class="tipoRight"><span id="precioBloqueCanon5"></span></td>
+							 	<td class="tipoRight"><span id="importeBloqueCanon5"> </span></td>
+							</tr>
+
+
+							<tr>
+							 	<td>Quota fixa cànon de sanejament:</td>
+							 	<td>&nbsp;</td>
+							 	<td>&nbsp;</span></td>
+							 	<td class="tipoRight"><span id="cuotaFijaCanon"></span></td>
+							</tr>
+
+
+
+							<tr>
+							 	<td>&nbsp;</td>
+							 	<td>&nbsp;</td>
+							 	<td>&nbsp;</span></td>
+							 	<td class="negrita tipoRight importePosicion ookii"><span id="importeCanon"></span></td>
+							</tr>
+
+
+
+
+
+
+
+
+
+					</table>
+				</div>
+
+
+
+
+<!--
+		 		<div class="row">
+		 			
+
+		 			<ul class="col-sm-6">
+						<li> &nbsp;  </li>
+						<li>Bloc 001 Quota var. cànon de sanejament</li>
+						<li>Bloc 002 Quota var. cànon de sanejament</li>
+			 			<li>Bloc 003 Quota var. cànon de sanejament</li>
+			 			<li>Bloc 004 Quota var. cànon de sanejament</li>
+			 			<li>Bloc 005 Quota var. cànon de sanejament</li>
+			 			<li>Quota fixa cànon de sanejament: </li>
+						<li>&nbsp; </li>
+					</ul>
+
+
+
+					<ul class="importePosicion col-sm-2">
+						<li class="negrita">m<sup>3</sup></li>
+	 					<li><span id="bloqueCanon1"> </span></li>
+	 					<li><span id="bloqueCanon2"> </span></li>
+	 					<li><span id="bloqueCanon3"> </span></li>
+	 					<li><span id="bloqueCanon4"> </span></li>
+	 					<li><span id="bloqueCanon5"> </span></li>		 
+	 		
+	 				</ul>
+
+
+
+					<ul class="col-sm-2">
+						<li class="negrita">preu</li>
+					 	<li><span id="precioBloqueCanon1"> </span></li>
+					 	<li><span id="precioBloqueCanon2"> </span></li>
+					 	<li><span id="precioBloqueCanon3"> </span></li>
+					 	<li><span id="precioBloqueCanon4"> </span></li>
+					 	<li><span id="precioBloqueCanon5"> </span></li>
+					 	
+					</ul>
+
+
+
+
+					 <ul class="importePosicion col-sm-2">
+					 	<li class="negrita">imports</li>
+					 	<li><span id="importeBloqueCanon1"> </span></li>
+					 	<li><span id="importeBloqueCanon2"> </span></li>
+					 	<li><span id="importeBloqueCanon3"> </span></li>
+					 	<li><span id="importeBloqueCanon4"> </span></li>
+					 	<li><span id="importeBloqueCanon5"> </span></li>
+					 	
+
+					 	<li><span id="cuotaFijaCanon"></span></li>
+					 	<li class="negrita importe"><span id="importeCanon"></span></li>
+					 </ul>
+
+
+
+
+
+
+		 		</div>
+
+
+-->
+
+
+
+		 		<!--
+		 		<p>Blocs  |<span>m3 </span> |<span> preu </span> |<span> import </span>|</p>
+		 		<p>Bloc 1 |<span id="bloqueCanon1"> </span> |<span id="precioBloqueCanon1"> </span> |<span id="importeBloqueCanon1"> </span>|</p>
+		 		<p>Bloc 2 |<span id="bloqueCanon2"> </span> |<span id="precioBloqueCanon2"> </span> |<span id="importeBloqueCanon2"> </span>|</p>
+		 		<p>Bloc 3 |<span id="bloqueCanon3"> </span> |<span id="precioBloqueCanon3"> </span> |<span id="importeBloqueCanon3"> </span>|</p>
+		 		<p>Bloc 4 |<span id="bloqueCanon4"> </span> |<span id="precioBloqueCanon4"> </span> |<span id="importeBloqueCanon4"> </span>|</p>
+		 		<p>Bloc 5 |<span id="bloqueCanon5"> </span> |<span id="precioBloqueCanon5"> </span> |<span id="importeBloqueCanon5"> </span>|</p>
+		 		<p>Quota fixa cànon sanejament:  <span id="cuotaFijaCanon"></span></p>
+		 		<p>Import cànon sanejament: <span id="importeCanon"></span></p>
+				-->
+
+
+		 	</div> 
+
+
+
+		 	<div class="col-sm-12">
+		 		<h4 class="tituloTipo">Total factura</h4>
+
+
+		 		
+			 		<table class="tablasTotal negrita ookii">
+			 			
+
+						<tr>
+						 	<td>EMAYA SUBTOTAL:</td>
+						 	<td class="tipoRight"><span id="subTotal"></span></td>
+						</tr>
+
+						<tr>
+						 	<td>GOVERN BALEAR SUBTOTAL:</td>
+						 	<td class="tipoRight"><span id="canonTotal"></span></td>
+						</tr>
+					</table>
+
+
+
+				<div class="tablasTam">	
+					<table class="baseIVA">
+					
+						<tr>
+						 	<td>BASE IMPOSABLE AL</td>
+						 	<td>10 %</td>
+						 	<td><span id="base10"></span></td>
+						 	<td>IMPORT IVA AL 10 %</td>
+						 	<td><span id="iva10"></span></td>
+						</tr>
+
+						<tr>
+						 	<td>BASE IMPOSABLE AL</td>
+						 	<td>21 %</td>
+						 	<td><span id="base21"></span></td>
+						 	<td>IMPORT IVA AL 21 %</td>
+						 	<td><span id="iva21"></span></td>
+						</tr>
+
+
+
+					</table>
+				</div>
+
+
+
+					<table class="tablasTotal negrita ookii">
+			 			
+
+						<tr>
+						 	<td>TOTAL IVA:</td>
+						 	<td class="tipoRight"><span id="ivaTotal"></span></td>
+						</tr>
+
+						<tr>
+						 	<td>TOTAL:</td>
+						 	<td class="tipoRight"><span id="total"></span></td>
+						</tr>
+					</table>
+				
+
+
+
+		 		
+
+
+
+
+
+
+
+
+
+
+<!--
+		 		<div class="row">
+		 			<ul class="negrita ookii col-sm-6">
+		 				<li>EMAYA SUBTOTAL:</li>
+		 				<li>GOVERN BALEAR SUBTOTAL:</li>
+		 			</ul>
+		 		
+		 			<ul class="importePosicion negrita ookii col-sm-6">
+		 				<li><span id="subTotal"></span></li>
+		 				<li><span id="canonTotal"></span></li>
+		 			</ul>
+
+
+		 			<ul class="col-sm-2">
+		 				<li>BASE IMPOSABLE AL</li> 
+		 				<li>BASE IMPOSABLE AL</li> 
+		 			</ul>
+
+					<ul class="col-sm-1">
+						<li>10 %</li>
+						<li>21 %</li>
+					</ul>
+
+					<ul class="importePosicion col-sm-1">
+		 				<li><span id="base10"></span></li>
+		 				<li><span id="base21"></span></li>
+		 			</ul>
+
+					<ul class="col-sm-2">
+		 				<li>IMPORT IVA AL 10 %</li> 
+		 				<li>IMPORT IVA AL 21 %</li> 
+		 			</ul>
+
+		 			<ul class="importePosicion col-sm-1">
+		 				<li><span id="iva10"></span></li>
+		 				<li><span id="iva21"></span></li>
+		 			</ul>
+
+
+
+
+		 			
+		 			<div class="col-sm-5"></div>
+
+
+
+
+
+
+
+
+		 			<ul class="negrita ookii col-sm-6">
+		 				<li>TOTAL IVA:</li>
+		 				<li>TOTAL:</li>
+		 			</ul>
+		 		
+		 			<ul class="importePosicion negrita ookii col-sm-6">
+		 				<li><span id="ivaTotal"></span></li>
+		 				<li><span id="total"></span></li>
+		 			</ul>
+
+
+
+
+		 		</div>
+
+-->
+		 	<!--
+		 		<p>EMAYA SUBTOTAL: <span id="subTotal"></span></p>
+		 		<p>GOVERN BALEAR SUBTOTAL: <span id="canonTotal"></span></p>
+		 		<p>BASE IMPOSABLE AL 10 %: <span id="base10"></span> IMPORT IVA AL 10 %: <span id="iva10"></span></p>
+		 		<p>BASE IMPOSABLE AL 21 %: <span id="base21"></span> IMPORT IVA AL 21 %: <span id="iva21"></span></p>
+		 		<p>Total IVA: <span id="ivaTotal"></span></p>
+		 		<p>TOTAL: <span id="total"></span></p>
+		 		-->
+
+
+		 		<button class="botonVolver btn" onclick="volverAtras();">VOLVER</button>
+
+
+		 	  </div>
+
+		 	 </div>
+		 	</div>
+
+
+
+
+
+
+
+
+
+		</div>
+
+
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
