@@ -1,0 +1,620 @@
+
+
+
+#simuladorFactura{ background-color: #FBFBFB;    padding-top: 1%;}
+
+
+#simuladorFactura h1{color: #484848;}
+
+
+
+#simuladorFactura .simulador{ color: #358ECA;  }
+
+
+#simuladorFactura #aviso{ display: none; }
+
+
+
+#simuladorFactura #simulacion .agua{
+	padding-right: 2%;
+}
+
+#simuladorFactura #simulacion .rsu{
+	padding-right: 2%;
+}
+
+
+#simuladorFactura #simulacion .divValor{ 
+
+
+
+	background-color: #F2F2F2;  
+	border-style: solid;
+	border-color: #E4E4E4;
+	border-width: 2px;
+	height: 80px;
+
+	
+
+
+	}
+
+
+
+
+
+#simuladorFactura #simulacion .valorIntro{
+
+	margin-top: 1%;
+
+	float: left;
+	width: 40%;
+
+	font-weight: bold;
+
+	color: #686E72;
+
+
+
+
+}
+
+
+#simuladorFactura #simulacion .daiookii{
+	font-size: 18px;
+	color:#000000;
+}
+
+
+#simuladorFactura #simulacion .posicionValor{
+	padding-top: 1%;
+
+}
+
+
+
+
+#simuladorFactura .botonNuevoValor{ float: right;
+
+
+	width: 200px;
+  
+	height: 45px;
+	
+	
+
+	border:none;
+	
+   
+    font-weight: 600;
+    font-size: 14px;
+    color: #358ECA; 
+    background-color: #ffffff;
+    border-radius: 10px;
+
+
+
+
+    border: 1px solid #E1E1E1;
+
+
+
+}
+
+
+#simuladorFactura .botonNuevoValor:hover{
+    color: #ffffff;
+    background-color: #5ea5d4; 
+
+}
+
+
+
+
+#simuladorFactura #formularioInicial .cajaForm{
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 10%;
+	margin-top: 1%;
+	width: 33.5%;
+	min-width: 300px;
+
+	color:#6B7075;
+
+}
+
+
+
+
+
+
+
+
+#simuladorFactura .pintaBorde{
+
+	box-shadow: -1px 1px 0px 1px rgba(0,0,0,0.06);
+
+
+
+	border-style: solid;
+	border-color: #D7D7D7;
+	border-width: 1px;
+	border-radius: 1px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#simuladorFactura .pintaBorde .formConsumo .divInput{
+	
+
+
+	background-color: #F2F2F2; 
+	padding-top: 10%;
+	padding-left: 20%;
+	height: 100px;
+
+
+	border-bottom: solid;
+
+	border-color: #D7D7D7;
+
+	border-width: 1px;
+
+
+	
+}
+
+
+
+
+#simuladorFactura  .pintaBorde .formConsumo .divInput .consumoText{
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #595D61;
+	font-size: 18px;
+}
+
+
+#simuladorFactura .pintaBorde .formConsumo .divInput #consumo{
+	
+
+	
+
+        border-radius: 10px;
+        border: 1px solid #000000;
+        padding: 0 4px 0 4px;
+
+
+
+		height: 60%;
+    	width: 35%;
+    	border-color: #D7D7D7;
+    }
+
+
+
+
+
+
+#simuladorFactura .pintaBorde .formConsumo .divButton{
+
+
+
+
+	padding-top: 5%;
+	background-color: #FFFFFF;
+	height: 100%;
+}
+
+
+#simuladorFactura .pintaBorde .formConsumo .divButton p{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+
+
+
+
+
+#simuladorFactura .pintaBorde .formConsumo .divButton .botonCalcula{
+
+	width:48%;
+	height: 45px;
+	margin-left: 27%;
+	text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #ffffff;
+    background-color: #4698CE; 
+    border-radius: 12px;
+    border: none;
+
+    margin-bottom: 10px; 
+    
+
+
+   
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#simuladorFactura #simulacion{	
+	display: none;
+}
+
+
+
+
+
+
+
+
+#simuladorFactura #simulacion .resumenFactura{ 
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 7%;
+	margin-top: 4%;
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+#simuladorFactura #simulacion .tablaResumenFactura{
+	margin-left: 3%;
+	width: 93%;
+
+
+
+}
+
+
+
+
+
+#simuladorFactura #simulacion .tablasFacturas{
+	width: 100%;
+
+	
+}
+
+#simuladorFactura #simulacion .tablasTotal{
+	width: 100%;
+	
+
+	
+}
+
+#simuladorFactura #simulacion .tipoRight{
+
+	text-align: right;
+	padding-left: 7%;
+
+	
+}
+
+
+
+#simuladorFactura #simulacion .tipoLeft{
+	text-align: left;
+
+}
+
+
+#simuladorFactura #simulacion .baseIVA{
+	width: 500px;
+    font-size: 14px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+
+}
+
+
+
+
+
+
+
+
+
+
+#simuladorFactura #simulacion .datos{
+	float: right;
+}
+
+
+
+
+
+
+
+#simuladorFactura #simulacion .resumenDiv{ 
+
+
+	background-color: #FFFFFF; 
+	border-style: solid;
+	border-color: #DBDBDB;
+	border-width: 2px;
+	padding-top: 4%;
+	padding-bottom: 2%;
+
+	min-width: 200px;
+
+
+
+}
+
+
+
+
+
+#simuladorFactura #simulacion  .resumenDiv p{ 
+	margin-left: 2%;
+
+}
+
+
+
+
+#simuladorFactura #simulacion  .resumenDiv ul{ list-style-type: none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#simuladorFactura #simulacion  #resumenTotal{ color: #FF4788; font-size: 18px;}
+
+
+
+
+
+#simuladorFactura  .negrita{ font-weight: bold; }
+
+
+
+#simuladorFactura  .importePosicion {
+	padding-top: 10%;
+}
+
+
+#simuladorFactura  .importePosicionEspecial {
+	padding-top: 22%;
+}
+
+
+
+
+#simuladorFactura #simulacion ul{list-style-type: none;
+
+
+
+}
+
+#simuladorFactura #simulacion .ookii{
+	font-size: 16px;
+}
+
+
+
+
+#simuladorFactura #simulacion .tituloTipo{
+	color: #8B8F93;
+	font-weight: bold;
+
+	border-bottom: 1px solid #CDCDCD;
+
+	padding-bottom: 10px;
+
+}
+
+
+
+
+
+
+#simuladorFactura #simulacion .botonVolver{
+
+
+
+
+	
+	border-radius:28px;
+	
+	margin-top: 5%; 
+	
+
+
+	
+
+	background-color: #FFFFFF;
+	
+	border-color: #D5D8DB;
+	color: #A1A7A7;
+
+	width: 100px;
+
+
+
+
+
+	height: 40px;
+
+
+	margin-bottom: 150px;
+	
+
+}
+
+
+#simuladorFactura #simulacion .botonVolver:hover{
+
+
+	background-color: #A1A7A7;
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+
+}
+
+
+
+#simuladorFactura .liliput{
+	font-size: 12px;
+	color: #838383;
+}
+
+
+
+#simuladorFactura h4{
+	color: #6D7377;
+	font-weight: bold;
+	
+}
+
+
+
+
+
+
+#simuladorFactura #simulacion .espacio{
+	padding-top: 27%;
+
+}
+
+
+
+
+
+#simuladorFactura #simulacion .tablasTam{
+	overflow-x: auto;
+	
+}
+
+
+
+
+
+
+
+#simuladorFactura .tituloCabeza{
+
+	color:#8B8F93;
+
+}
+
+
+
+
+
+
+@media screen and (max-width: 480px) {
+	
+
+	#simuladorFactura #simulacion .resumenFactura{ 
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 7%;
+		margin-top: 4%;
+
+
+
+	}
+
+
+
+
+
+	#simuladorFactura #simulacion .tablasFacturas{
+	width: 600px;
+	
+	
+	}
+
+
+
+
+
+
+
+	#simuladorFactura .botonNuevoValor{
+		width: 150px;
+	}
+
+
+
+
+
+	#simuladorFactura #simulacion .daiookii {
+    	font-size: 1em;
+    	color: #000000;
+	}
+
+
+
+
+
+
+}
+
+
+
+
+
+
